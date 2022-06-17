@@ -1,38 +1,65 @@
 #!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | gautamajay52 | MaxxRider | 5MysterySD 
+
+# (c) Shrimadhav U K | gautamajay52 | MaxxRider
 
 import asyncio
+
 import logging
+
 import os
+
 import time
+
 from collections import defaultdict
+
 from logging.handlers import RotatingFileHandler
+
 from sys import exit
+
 import urllib.request
+
 import dotenv
+
 import telegram.ext as tg
 
 from pyrogram import Client
 
-if os.path.exists("FuZionXLogs.txt"):
-    with open("FuZionXLogs.txt", "r+") as f_d:
+if os.path.exists("TorrentLeech-Gdrive.txt"):
+
+    with open("Torrentleech-Gdrive.txt", "r+") as f_d:
+
         f_d.truncate(0)
 
 # the logging things
+
 logging.basicConfig(
+
     level=logging.DEBUG,
+
     format="%(asctime)s - %(levelname)s - %(message)s [%(filename)s:%(lineno)d]",
+
     datefmt="%d-%b-%y %H:%M:%S",
+
     handlers=[
+
         RotatingFileHandler(
-            "FuZionXLogs.txt", maxBytes=50000000, backupCount=10
+
+            "Torrentleech-Gdrive.txt", maxBytes=50000000, backupCount=10
+
         ),
+
         logging.StreamHandler(),
+
     ],
+
 )
+
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
+
 logging.getLogger("urllib3").setLevel(logging.WARNING)
+
 logging.getLogger("PIL").setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger(__name__)
